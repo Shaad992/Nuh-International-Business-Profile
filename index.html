@@ -1,0 +1,336 @@
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<title>NUH INTERNATIONAL EXPORT PVT LTD</title>  
+<style>  
+    * {  
+      -webkit-tap-highlight-color: transparent;  
+      margin: 0;  
+      padding: 0;  
+    }  
+    body {  
+        margin: 0;  
+        background: linear-gradient(to bottom, #ffffff, #e9eef3);  
+        font-family: Arial, sans-serif;  
+        display: flex;  
+        flex-direction: column;  
+        min-height: 100vh;  
+        animation: fadeIn 0.8s ease-in-out;  
+    }  
+    @keyframes fadeIn {  
+        from {opacity: 0; transform: translateY(10px);}  
+        to {opacity: 1; transform: translateY(0);}  
+    }  
+    .top-section {  
+        display: flex;  
+        flex-direction: column;  
+        align-items: center;  
+        padding: 20px 0;  
+    }  
+    .logo {  
+        width: 120px;  
+        height: 120px;  
+        border-radius: 50%;  
+        object-fit: cover;  
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);  
+        margin-bottom: 12px;  
+        transition: transform 0.5s ease, box-shadow 0.5s ease;  
+    }  
+    .logo:hover {  
+        transform: scale(1.15) rotate(3deg);  
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);  
+    }  
+    .header {  
+        background: rgba(255, 255, 255, 0.7);  
+        backdrop-filter: blur(12px);  
+        color: black;  
+        text-align: center;  
+        padding: 10px 20px;  
+        font-size: 18px;  
+        font-weight: bold;  
+        border-radius: 12px;  
+        border: 1px solid rgba(200, 200, 200, 0.4);  
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);  
+        transition: transform 0.3s ease, box-shadow 0.3s ease;  
+    }  
+    .header:hover {  
+        transform: translateY(-3px) scale(1.02);  
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);  
+    }  
+    .nav {  
+        display: flex;  
+        justify-content: center;  
+        margin-top: 30px;  
+        gap: 15px;  
+        flex-wrap: wrap;  
+    }  
+    .nav-button {  
+        background: darkorange;  
+        color: white;  
+        border: none;  
+        padding: 12px 26px;  
+        font-size: 15px;  
+        cursor: pointer;  
+        border-radius: 10px;  
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);  
+        transition: all 0.35s ease;  
+    }  
+    .nav-button:hover {  
+        background: #ff8c00;  
+        transform: translateY(-4px) scale(1.05);  
+        box-shadow: 0 12px 24px rgba(0,0,0,0.25);  
+    }  
+    .dropdown {  
+        display: flex;  
+        flex-direction: column;  
+        align-items: flex-start;  
+        margin-top: 5px;  
+        padding: 0;  
+        border-radius: 10px;  
+        overflow: hidden;  
+        max-height: 0;  
+        opacity: 0;  
+        background: rgba(255, 255, 255, 0.95);  
+        box-shadow: 0 8px 18px rgba(0,0,0,0.2);  
+        width: 200px;  
+        transform: translateY(-10px);  
+        transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;  
+    }  
+    .dropdown.show {  
+        max-height: 300px;  
+        opacity: 1;  
+        padding: 12px;  
+        transform: translateY(0);  
+    }  
+    .dropdown a {  
+        text-decoration: none;  
+        color: black;  
+        padding: 10px 0;  
+        width: 100%;  
+        display: block;  
+        border-radius: 6px;  
+        transition: background 0.25s ease, padding-left 0.25s ease;  
+    }  
+    .dropdown a:hover {  
+        background-color: #f0f0f0;  
+        padding-left: 6px;  
+    }  
+    .nav-container {  
+        display: flex;  
+        flex-direction: column;  
+        align-items: center;  
+    }  
+    .profile-section {  
+        margin: 30px auto;  
+        text-align: center;  
+        max-width: 320px;  
+        padding: 20px;  
+        border-radius: 20px;  
+        background: rgba(255,255,255,0.85);  
+        backdrop-filter: blur(10px);  
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);  
+        transition: transform 0.35s ease, box-shadow 0.35s ease;  
+    }  
+    .profile-section:hover {  
+        transform: translateY(-8px) scale(1.03);  
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);  
+    }  
+    .profile-image {  
+        width: 140px;  
+        height: 140px;  
+        border-radius: 50%;  
+        object-fit: cover;  
+        object-position: center;  
+        box-shadow: 0 8px 18px rgba(0,0,0,0.25);  
+        margin-bottom: 15px;  
+        transition: transform 0.35s ease, box-shadow 0.35s ease;  
+        cursor: pointer;  
+    }  
+    .profile-section:hover .profile-image {  
+        transform: scale(1.1);  
+        box-shadow: 0 12px 24px rgba(0,0,0,0.35);  
+    }  
+    .hr-image {  
+        object-position: top center;  
+    }  
+    .profile-name {  
+        font-size: 20px;  
+        font-weight: bold;  
+        margin-bottom: 4px;  
+    }  
+    .profile-role {  
+        font-size: 15px;  
+        color: #666;  
+        margin-bottom: 10px;  
+    }  
+    .profile-email {  
+        font-size: 14px;  
+        margin-bottom: 12px;  
+        display: block;  
+        color: #007BFF;  
+        text-decoration: none;  
+        transition: color 0.25s ease;  
+    }  
+    .profile-email:hover {  
+        color: #0056b3;  
+    }  /* Multi-color layered animated button */  
+.contact-button {  
+    display: inline-block;  
+    padding: 10px 18px;  
+    font-size: 14px;  
+    color: white;  
+    position: relative;  
+    border: none;  
+    border-radius: 8px;  
+    text-decoration: none;  
+    overflow: hidden;  
+    z-index: 0;  
+    cursor: pointer;  
+    background: linear-gradient(270deg, #ff4b1f, #ff9068, #43cea2, #185a9d, #ff4b1f);  
+    background-size: 600% 600%;  
+    animation: gradientShift 6s ease infinite;  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);  
+}  
+.contact-button::before,  
+.contact-button::after {  
+    content: "";  
+    position: absolute;  
+    top: 0; left: 0;  
+    width: 100%; height: 100%;  
+    z-index: -1;  
+    background: linear-gradient(270deg, #ff6a00, #ee0979, #ff6a00);  
+    background-size: 400% 400%;  
+    animation: gradientShift 5s ease infinite;  
+    opacity: 0;  
+    transition: opacity 0.4s ease;  
+}  
+.contact-button::after {  
+    background: linear-gradient(270deg, #00c6ff, #0072ff, #00c6ff);  
+    animation-duration: 7s;  
+}  
+.contact-button:hover {  
+    transform: translateY(-3px) scale(1.05);  
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25);  
+}  
+.contact-button:hover::before,  
+.contact-button:hover::after {  
+    opacity: 0.5;  
+}  
+@keyframes gradientShift {  
+    0% {background-position: 0% 50%;}  
+    50% {background-position: 100% 50%;}  
+    100% {background-position: 0% 50%;}  
+}  
+
+footer {  
+    margin-top: auto;  
+    background: linear-gradient(to right, #f9f9f9, #ececec);  
+    text-align: center;  
+    padding: 15px 10px;  
+    font-size: 13px;  
+    color: #555;  
+    border-top: 1px solid #ddd;  
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.06);  
+}  
+.image-preview {  
+    display: none;  
+    position: fixed;  
+    top: 0; left: 0;  
+    width: 100%; height: 100%;  
+    background: rgba(0,0,0,0.9);  
+    justify-content: center;  
+    align-items: center;  
+    z-index: 1000;  
+    animation: fadeIn 0.3s ease;  
+}  
+.image-preview img {  
+    max-width: 90%;  
+    max-height: 90%;  
+    border-radius: 10px;  
+    box-shadow: 0 0 25px rgba(255,255,255,0.2);  
+}  
+.close-btn {  
+    position: absolute;  
+    top: 20px; right: 30px;  
+    font-size: 30px;  
+    color: white;  
+    cursor: pointer;  
+    font-weight: bold;  
+}
+
+</style>  
+</head>  
+<body>  <div class="top-section">  
+    <img src="https://i.ibb.co/TBnyj1GJ/Logopit-1755183562813.png" alt="Company Logo" class="logo">  
+    <div class="header">NUH INTERNATIONAL EXPORT PVT LTD</div>  
+</div>  
+
+<div class="nav-container">  
+    <div class="nav">  
+        <div>  
+            <button class="nav-button" onclick="toggleDropdown()">Our Products</button>  
+            <div class="dropdown" id="productDropdown">  
+                <a href="product1.html">Product 1</a>  
+                <a href="product2.html">Product 2</a>  
+                <a href="product3.html">Product 3</a>  
+                <a href="product4.html">Product 4</a>  
+            </div>  
+        </div>  
+        <div>  
+            <a href="about.html">  
+                <button class="nav-button">About Us</button>  
+            </a>  
+        </div>  
+    </div>  
+</div>  
+
+<div class="profile-section">  
+    <img src="https://i.ibb.co/MD6FRFvJ/IMG-20250814-WA0037.jpg" alt="Mohammad Firoz" class="profile-image">  
+    <div class="profile-name">Mohammad Firoz</div>  
+    <div class="profile-role">CEO</div>  
+    <a href="mailto:mtfirozmalik@gmail.com" class="profile-email">mtfirozmalik@gmail.com</a>  
+    <a href="https://wa.me/919639565713" class="contact-button" target="_blank">Contact Me</a>  
+</div>  
+
+<div class="profile-section">  
+    <img src="https://i.ibb.co/4Cgym9N/IMG-20250814-WA0042.jpg" alt="Mohammad Javed" class="profile-image">  
+    <div class="profile-name">Mohammad Javed</div>  
+    <div class="profile-role">Director</div>  
+    <a href="mailto:mohdjaved0915@gmail.com" class="profile-email">mohdjaved0915@gmail.com</a>  
+    <a href="https://wa.me/917037580915" class="contact-button" target="_blank">Contact Me</a>  
+</div>  
+
+<div class="profile-section">  
+    <img src="https://i.ibb.co/cc8pP8gj/Snapchat-913302238.jpg" alt="Naushad Ahmad" class="profile-image hr-image">  
+    <div class="profile-name">Naushad Ahmad</div>  
+    <div class="profile-role">HR Manager</div>  
+    <a href="mailto:naushadhr@hotmail.com" class="profile-email">naushadhr@hotmail.com</a>  
+    <a href="https://wa.me/919027727772" class="contact-button" target="_blank">Contact Me</a>  
+</div>  
+
+<footer>  
+    © 2025 NUH INTERNATIONAL EXPORT PVT LTD. All rights reserved.  
+</footer>  
+
+<div class="image-preview" id="imagePreview">  
+    <span class="close-btn" onclick="closePreview()">&times;</span>  
+    <img id="previewImage" src="" alt="Full Preview">  
+</div>
+
+<script>  
+    function toggleDropdown() {  
+        document.getElementById("productDropdown").classList.toggle("show");  
+    }  
+    document.querySelectorAll('.profile-image').forEach(img => {  
+        img.addEventListener('click', function() {  
+            document.getElementById('previewImage').src = this.src;  
+            document.getElementById('imagePreview').style.display = 'flex';  
+        });  
+    });  
+    function closePreview() {  
+        document.getElementById('imagePreview').style.display = 'none';  
+    }  
+</script>  
+</body>  
+</html>
