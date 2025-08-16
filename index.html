@@ -13,7 +13,7 @@
     }  
     body {  
         margin: 0;  
-        background: linear-gradient(to bottom, #ffffff, #e9eef3);  
+        background: linear-gradient(135deg, #fdfdfd, #e6eef5);  
         font-family: Arial, sans-serif;  
         display: flex;  
         flex-direction: column;  
@@ -24,6 +24,8 @@
         from {opacity: 0; transform: translateY(10px);}  
         to {opacity: 1; transform: translateY(0);}  
     }  
+
+    /* ===== Top Section ===== */
     .top-section {  
         display: flex;  
         flex-direction: column;  
@@ -32,69 +34,76 @@
         text-align: center;  
     }  
     .logo {  
-        width: 120px;  
-        height: 120px;  
+        width: 130px;  
+        height: 130px;  
         border-radius: 50%;  
         object-fit: cover;  
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);  
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(255,255,255,0.4);  
         margin-bottom: 12px;  
-        transition: transform 0.5s ease, box-shadow 0.5s ease;  
+        transition: transform 0.6s ease, box-shadow 0.6s ease;  
+        background: radial-gradient(circle at 30% 30%, #fff8, transparent);  
     }  
     .logo:hover {  
-        transform: scale(1.15) rotate(3deg);  
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);  
+        transform: scale(1.2) rotate(6deg);  
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 0 25px rgba(255,255,255,0.6);  
     }  
     .header {  
-        background: rgba(255, 255, 255, 0.7);  
-        backdrop-filter: blur(12px);  
+        background: rgba(255, 255, 255, 0.75);  
+        backdrop-filter: blur(15px) saturate(150%);  
         color: black;  
         text-align: center;  
-        padding: 10px 20px;  
-        font-size: 1.1rem;  
+        padding: 10px 25px;  
+        font-size: 1.2rem;  
         font-weight: bold;  
-        border-radius: 12px;  
+        border-radius: 14px;  
         border: 1px solid rgba(200, 200, 200, 0.4);  
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);  
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);  
+        transform: perspective(500px) translateZ(20px);  
     }  
+
+    /* ===== Navigation ===== */
     .nav {  
         display: flex;  
         justify-content: center;  
-        margin-top: 20px;  
-        gap: 15px;  
+        margin-top: 25px;  
+        gap: 18px;  
         flex-wrap: wrap;  
     }  
     .nav-button {  
         background: linear-gradient(145deg, #ff9d3c, #e07a00);  
         color: white;  
         border: none;  
-        padding: 12px 20px;  
-        font-size: 0.95rem;  
+        padding: 12px 22px;  
+        font-size: 1rem;  
         cursor: pointer;  
-        border-radius: 10px;  
-        box-shadow: 0 5px 0px #b35d00, 0 8px 16px rgba(0,0,0,0.15);  
-        transition: all 0.25s ease;  
-        min-width: 120px;  
+        border-radius: 12px;  
+        box-shadow: 0 6px 0px #b35d00, 0 10px 20px rgba(0,0,0,0.15);  
+        transition: all 0.3s ease;  
+        min-width: 130px;  
         font-weight: bold;  
     }  
     .nav-button:hover {  
-        transform: translateY(-3px);  
-        box-shadow: 0 8px 0px #b35d00, 0 12px 24px rgba(0,0,0,0.25);  
+        transform: translateY(-4px) scale(1.05);  
+        box-shadow: 0 8px 0px #b35d00, 0 14px 28px rgba(0,0,0,0.25);  
     }  
     .nav-button:active {  
-        transform: translateY(3px);  
-        box-shadow: 0 2px 0px #b35d00, 0 4px 8px rgba(0,0,0,0.25);  
+        transform: translateY(3px) scale(0.98);  
+        box-shadow: 0 3px 0px #b35d00, 0 6px 12px rgba(0,0,0,0.25);  
     }  
+
+    /* ===== Dropdown ===== */
     .dropdown {  
         display: none;  
         flex-direction: column;  
-        margin-top: 5px;  
-        border-radius: 10px;  
+        margin-top: 8px;  
+        border-radius: 12px;  
         background: rgba(255, 255, 255, 0.95);  
-        box-shadow: 0 8px 18px rgba(0,0,0,0.2);  
+        backdrop-filter: blur(10px);  
+        box-shadow: 0 8px 20px rgba(0,0,0,0.25);  
         width: 200px;  
         transform: scaleY(0);  
         transform-origin: top;  
-        transition: transform 0.3s ease, opacity 0.3s ease;  
+        transition: transform 0.35s ease, opacity 0.35s ease;  
         opacity: 0;  
     }  
     .dropdown.show {  
@@ -107,94 +116,114 @@
         text-decoration: none;  
         color: black;  
         padding: 10px;  
-        border-radius: 6px;  
+        border-radius: 8px;  
         transition: background 0.25s ease, padding-left 0.25s ease;  
     }  
     .dropdown a:hover {  
         background-color: #f0f0f0;  
-        padding-left: 6px;  
+        padding-left: 8px;  
     }  
+
+    /* ===== Profile Cards ===== */
     .profile-section {  
-        margin: 25px auto;  
+        margin: 30px auto;  
         text-align: center;  
-        max-width: 350px;  
-        padding: 20px;  
-        border-radius: 20px;  
-        background: rgba(255,255,255,0.85);  
-        backdrop-filter: blur(10px);  
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);  
-        transition: transform 0.3s ease, box-shadow 0.3s ease;  
+        max-width: 360px;  
+        padding: 22px;  
+        border-radius: 22px;  
+        background: rgba(255,255,255,0.9);  
+        backdrop-filter: blur(14px);  
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);  
+        transition: transform 0.35s ease, box-shadow 0.35s ease;  
     }  
     .profile-section:hover {  
-        transform: translateY(-5px);  
-        box-shadow: 0 15px 35px rgba(0,0,0,0.2);  
+        transform: translateY(-6px) scale(1.02);  
+        box-shadow: 0 18px 40px rgba(0,0,0,0.25);  
     }  
+
+    /* ✅ Gradient Backgrounds */
+    .ceo-section, .director-section, .hr-section {  
+        background: linear-gradient(135deg, #ff7eb3, #ff758c, #ffce73, #85ffbd, #4facfe);  
+        background-size: 400% 400%;  
+        animation: gradientBG 8s ease infinite;  
+        color: white;  
+    }  
+    @keyframes gradientBG {  
+        0% {background-position: 0% 50%;}  
+        50% {background-position: 100% 50%;}  
+        100% {background-position: 0% 50%;}  
+    }  
+
     .profile-image {  
-        width: 140px;  
-        height: 140px;  
+        width: 145px;  
+        height: 145px;  
         border-radius: 50%;  
         object-fit: cover;  
-        object-position: center;  
         margin-bottom: 15px;  
         cursor: pointer;  
-        transition: transform 0.35s ease, box-shadow 0.35s ease;  
-        box-shadow: 0px 8px 20px rgba(0, 255, 255, 0.6);  
+        transition: transform 0.4s ease, box-shadow 0.4s ease;  
+        box-shadow: 0px 10px 25px rgba(0,0,0,0.35), inset 0 0 10px rgba(255,255,255,0.3);  
     }  
     .hr-image {  
-        object-fit: cover;  
         object-position: top center;  
     }  
     .profile-section:hover .profile-image {  
-        transform: scale(1.05);  
-        box-shadow: 0px 12px 25px rgba(0, 255, 255, 0.8);  
+        transform: scale(1.08);  
+        box-shadow: 0px 14px 30px rgba(0,0,0,0.45), inset 0 0 12px rgba(255,255,255,0.4);  
     }  
     .profile-name {  
-        font-size: 1.2rem;  
+        font-size: 1.3rem;  
         font-weight: bold;  
-        margin-bottom: 4px;  
+        margin-bottom: 5px;  
     }  
     .profile-role {  
-        font-size: 0.9rem;  
-        color: #666;  
-        margin-bottom: 10px;  
+        font-size: 0.95rem;  
+        color: #222;  
+        margin-bottom: 12px;  
     }  
     .profile-email {  
         font-size: 0.9rem;  
         display: block;  
         color: #007BFF;  
         text-decoration: none;  
-        margin-bottom: 12px;  
+        margin-bottom: 14px;  
     }  
     .profile-email:hover {  
         color: #0056b3;  
     }  
+
+    /* ===== Contact Button ===== */
     .contact-button {  
         display: inline-block;  
-        padding: 10px 18px;  
+        padding: 10px 20px;  
         font-size: 0.9rem;  
         color: white;  
-        border-radius: 8px;  
+        border-radius: 10px;  
         text-decoration: none;  
         cursor: pointer;  
-        background: linear-gradient(270deg, #ff4b1f, #ff9068, #43cea2, #185a9d, #ff4b1f);  
+        background: linear-gradient(270deg, rgba(255,75,31,0.8), rgba(255,144,104,0.8), rgba(67,206,162,0.8), rgba(24,90,157,0.8), rgba(255,75,31,0.8));  
         background-size: 600% 600%;  
         animation: gradientShift 6s ease infinite;  
-        box-shadow: 0 5px 0px #444, 0 8px 16px rgba(0,0,0,0.15);  
-        transition: all 0.25s ease;  
+        box-shadow: 0 6px 0px rgba(68,68,68,0.6), 0 10px 20px rgba(0,0,0,0.15);  
+        transition: all 0.3s ease;  
+        backdrop-filter: blur(8px) saturate(150%);  
+        border: 1px solid rgba(255, 255, 255, 0.25);  
     }  
     .contact-button:hover {  
-        transform: translateY(-3px);  
-        box-shadow: 0 8px 0px #444, 0 12px 24px rgba(0,0,0,0.25);  
+        transform: translateY(-4px) scale(1.05);  
+        box-shadow: 0 9px 0px rgba(68,68,68,0.6), 0 14px 28px rgba(0,0,0,0.25);  
     }  
     .contact-button:active {  
-        transform: translateY(3px);  
-        box-shadow: 0 2px 0px #444, 0 4px 8px rgba(0,0,0,0.25);  
+        transform: translateY(3px) scale(0.97);  
+        box-shadow: 0 3px 0px rgba(68,68,68,0.6), 0 6px 12px rgba(0,0,0,0.25);  
     }  
     @keyframes gradientShift {  
         0% {background-position: 0% 50%;}  
         50% {background-position: 100% 50%;}  
         100% {background-position: 0% 50%;}  
     }  
+
+    /* ===== Footer ===== */
     footer {  
         margin-top: auto;  
         background: linear-gradient(to right, #f9f9f9, #ececec);  
@@ -204,6 +233,8 @@
         color: #555;  
         border-top: 1px solid #ddd;  
     }  
+
+    /* ===== Image Preview ===== */
     .image-preview {  
         display: none;  
         position: fixed;  
@@ -217,7 +248,8 @@
     .image-preview img {  
         max-width: 90%;  
         max-height: 90%;  
-        border-radius: 10px;  
+        border-radius: 12px;  
+        box-shadow: 0 8px 25px rgba(0,0,0,0.4);  
     }  
     .close-btn {  
         position: absolute;  
@@ -226,6 +258,8 @@
         color: white;  
         cursor: pointer;  
     }  
+
+    /* ===== Mobile ===== */
     @media (max-width: 600px) {  
         .nav {  
             flex-direction: column;  
@@ -239,8 +273,8 @@
             width: 90%;  
         }  
         .logo {  
-            width: 90px;  
-            height: 90px;  
+            width: 95px;  
+            height: 95px;  
         }  
     }  
 </style>  
@@ -265,7 +299,8 @@
     <a href="about.html"><button class="nav-button">About Us</button></a>  
 </div>  
 
-<div class="profile-section">  
+<!-- ✅ CEO Section -->
+<div class="profile-section ceo-section">  
     <img src="https://i.ibb.co/MD6FRFvJ/IMG-20250814-WA0037.jpg" alt="Mohammad Firoz" class="profile-image">  
     <div class="profile-name">Mohammad Firoz</div>  
     <div class="profile-role">CEO</div>  
@@ -273,7 +308,8 @@
     <a href="https://wa.me/919639565713" class="contact-button" target="_blank">Contact Me</a>  
 </div>  
 
-<div class="profile-section">  
+<!-- ✅ Director Section -->
+<div class="profile-section director-section">  
     <img src="https://i.ibb.co/4Cgym9N/IMG-20250814-WA0042.jpg" alt="Mohammad Javed" class="profile-image">  
     <div class="profile-name">Mohammad Javed</div>  
     <div class="profile-role">Director</div>  
@@ -281,7 +317,8 @@
     <a href="https://wa.me/917037580915" class="contact-button" target="_blank">Contact Me</a>  
 </div>  
 
-<div class="profile-section">  
+<!-- ✅ HR Manager Section -->
+<div class="profile-section hr-section">  
     <img src="https://i.ibb.co/cc8pP8gj/Snapchat-913302238.jpg" alt="Naushad Ahmad" class="profile-image hr-image">  
     <div class="profile-name">Naushad Ahmad</div>  
     <div class="profile-role">HR Manager</div>  
