@@ -47,18 +47,24 @@
         transform: scale(1.2) rotate(6deg);  
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 0 25px rgba(255,255,255,0.6);  
     }  
+
+    /* ✅ Indian Flag Border Header */
     .header {  
-        background: rgba(255, 255, 255, 0.75);  
-        backdrop-filter: blur(15px) saturate(150%);  
+        background: rgba(255, 255, 255, 0.9);  
         color: black;  
         text-align: center;  
         padding: 10px 25px;  
         font-size: 1.2rem;  
         font-weight: bold;  
         border-radius: 14px;  
-        border: 1px solid rgba(200, 200, 200, 0.4);  
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);  
         transform: perspective(500px) translateZ(20px);  
+
+        border: 3px solid transparent;  
+        background-clip: padding-box, border-box;  
+        background-origin: border-box;  
+        background-image: linear-gradient(white, white),  
+                          linear-gradient(to right, #FF9933, white, #138808);  
     }  
 
     /* ===== Navigation ===== */
@@ -69,26 +75,45 @@
         gap: 18px;  
         flex-wrap: wrap;  
     }  
+
+    /* ✅ Transparent Animated Gradient Buttons */
     .nav-button {  
-        background: linear-gradient(145deg, #ff9d3c, #e07a00);  
+        position: relative;  
+        background: transparent;  
         color: white;  
+        font-weight: bold;  
         border: none;  
         padding: 12px 22px;  
         font-size: 1rem;  
         cursor: pointer;  
         border-radius: 12px;  
-        box-shadow: 0 6px 0px #b35d00, 0 10px 20px rgba(0,0,0,0.15);  
-        transition: all 0.3s ease;  
         min-width: 130px;  
-        font-weight: bold;  
+        z-index: 1;  
+        overflow: hidden;  
     }  
-    .nav-button:hover {  
-        transform: translateY(-4px) scale(1.05);  
-        box-shadow: 0 8px 0px #b35d00, 0 14px 28px rgba(0,0,0,0.25);  
+    .nav-button::before {  
+        content: "";  
+        position: absolute;  
+        top: 0; left: 0;  
+        width: 100%; height: 100%;  
+        background: linear-gradient(270deg, #ff6a00, #ff0084, #00dbde);  
+        background-size: 400% 400%;  
+        animation: animateGradient 6s ease infinite;  
+        z-index: -1;  
+        border-radius: 12px;  
+        opacity: 0.85;  
+    }  
+    @keyframes animateGradient {  
+        0% {background-position: 0% 50%;}  
+        50% {background-position: 100% 50%;}  
+        100% {background-position: 0% 50%;}  
+    }  
+    .nav-button:hover::before {  
+        opacity: 1;  
+        filter: brightness(1.2);  
     }  
     .nav-button:active {  
-        transform: translateY(3px) scale(0.98);  
-        box-shadow: 0 3px 0px #b35d00, 0 6px 12px rgba(0,0,0,0.25);  
+        transform: scale(0.96);  
     }  
 
     /* ===== Dropdown ===== */
