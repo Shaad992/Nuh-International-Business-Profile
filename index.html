@@ -13,7 +13,7 @@
     }  
     body {  
         margin: 0;  
-        background: linear-gradient(135deg, #fdfdfd, #e6eef5);  
+        background: #f2f2f2;  
         font-family: Arial, sans-serif;  
         display: flex;  
         flex-direction: column;  
@@ -48,23 +48,35 @@
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 0 25px rgba(255,255,255,0.6);  
     }  
 
-    /* ✅ Indian Flag Border Header */
+    /* ===== Header with Flag Border + Animated Text ===== */
     .header {  
         background: rgba(255, 255, 255, 0.9);  
-        color: black;  
         text-align: center;  
         padding: 10px 25px;  
-        font-size: 1.2rem;  
+        font-size: 1.4rem;  
         font-weight: bold;  
         border-radius: 14px;  
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);  
         transform: perspective(500px) translateZ(20px);  
-
         border: 3px solid transparent;  
         background-clip: padding-box, border-box;  
         background-origin: border-box;  
         background-image: linear-gradient(white, white),  
                           linear-gradient(to right, #FF9933, white, #138808);  
+
+        /* 🔥 Text Animation Black + Golden */
+        background-image: linear-gradient(90deg, black, goldenrod, black);  
+        background-size: 200% auto;  
+        color: transparent;  
+        background-clip: text;  
+        -webkit-background-clip: text;  
+        -webkit-text-fill-color: transparent;  
+        animation: shineText 4s linear infinite;  
+    }  
+
+    @keyframes shineText {  
+        0% { background-position: 0% center; }  
+        100% { background-position: 200% center; }  
     }  
 
     /* ===== Navigation ===== */
@@ -76,44 +88,35 @@
         flex-wrap: wrap;  
     }  
 
-    /* ✅ Transparent Animated Gradient Buttons */
     .nav-button {  
         position: relative;  
-        background: transparent;  
-        color: white;  
-        font-weight: bold;  
-        border: none;  
-        padding: 12px 22px;  
-        font-size: 1rem;  
-        cursor: pointer;  
-        border-radius: 12px;  
-        min-width: 130px;  
-        z-index: 1;  
-        overflow: hidden;  
-    }  
-    .nav-button::before {  
-        content: "";  
-        position: absolute;  
-        top: 0; left: 0;  
-        width: 100%; height: 100%;  
         background: linear-gradient(270deg, #ff6a00, #ff0084, #00dbde);  
         background-size: 400% 400%;  
         animation: animateGradient 6s ease infinite;  
-        z-index: -1;  
-        border-radius: 12px;  
-        opacity: 0.85;  
+        color: white;  
+        font-weight: bold;  
+        border: none;  
+        padding: 8px 16px;  
+        font-size: 0.9rem;  
+        cursor: pointer;  
+        border-radius: 10px;  
+        min-width: 110px;  
+        z-index: 1;  
+        box-shadow: 0 4px 0px #444, 0 8px 15px rgba(0,0,0,0.3);  
+        transition: all 0.25s ease;  
+    }  
+    .nav-button:hover {  
+        transform: translateY(-3px);  
+        box-shadow: 0 6px 0px #333, 0 12px 20px rgba(0,0,0,0.35);  
+    }  
+    .nav-button:active {  
+        transform: translateY(2px);  
+        box-shadow: 0 2px 0px #333, 0 4px 8px rgba(0,0,0,0.3);  
     }  
     @keyframes animateGradient {  
         0% {background-position: 0% 50%;}  
         50% {background-position: 100% 50%;}  
         100% {background-position: 0% 50%;}  
-    }  
-    .nav-button:hover::before {  
-        opacity: 1;  
-        filter: brightness(1.2);  
-    }  
-    .nav-button:active {  
-        transform: scale(0.96);  
     }  
 
     /* ===== Dropdown ===== */
@@ -166,7 +169,6 @@
         box-shadow: 0 18px 40px rgba(0,0,0,0.25);  
     }  
 
-    /* ✅ Silver Metallic Animated Background */
     .ceo-section, .director-section, .hr-section {  
         background: linear-gradient(135deg, #c0c0c0, #e0e0e0, #a9a9a9);  
         background-size: 300% 300%;  
@@ -217,7 +219,6 @@
         color: #0056b3;  
     }  
 
-    /* ✅ Black 3D Contact Buttons */
     .contact-button {  
         display: inline-block;  
         padding: 10px 22px;  
@@ -240,7 +241,6 @@
         box-shadow: 0 3px 0px #222, 0 6px 12px rgba(0,0,0,0.35);  
     }  
 
-    /* ===== Footer ===== */
     footer {  
         margin-top: auto;  
         background: linear-gradient(to right, #f9f9f9, #ececec);  
@@ -251,7 +251,6 @@
         border-top: 1px solid #ddd;  
     }  
 
-    /* ===== Image Preview ===== */
     .image-preview {  
         display: none;  
         position: fixed;  
@@ -276,7 +275,6 @@
         cursor: pointer;  
     }  
 
-    /* ===== Mobile ===== */
     @media (max-width: 600px) {  
         .nav {  
             flex-direction: column;  
@@ -316,7 +314,7 @@
     <a href="about.html"><button class="nav-button">About Us</button></a>  
 </div>  
 
-<!-- ✅ CEO Section -->
+<!-- CEO Section -->
 <div class="profile-section ceo-section">  
     <img src="https://i.ibb.co/MD6FRFvJ/IMG-20250814-WA0037.jpg" alt="Mohammad Firoz" class="profile-image">  
     <div class="profile-name">Mohammad Firoz</div>  
@@ -325,7 +323,7 @@
     <a href="https://wa.me/919639565713" class="contact-button" target="_blank">Contact Me</a>  
 </div>  
 
-<!-- ✅ Director Section -->
+<!-- Director Section -->
 <div class="profile-section director-section">  
     <img src="https://i.ibb.co/4Cgym9N/IMG-20250814-WA0042.jpg" alt="Mohammad Javed" class="profile-image">  
     <div class="profile-name">Mohammad Javed</div>  
@@ -334,7 +332,7 @@
     <a href="https://wa.me/917037580915" class="contact-button" target="_blank">Contact Me</a>  
 </div>  
 
-<!-- ✅ HR Manager Section -->
+<!-- HR Manager Section -->
 <div class="profile-section hr-section">  
     <img src="https://i.ibb.co/cc8pP8gj/Snapchat-913302238.jpg" alt="Naushad Ahmad" class="profile-image hr-image">  
     <div class="profile-name">Naushad Ahmad</div>  
